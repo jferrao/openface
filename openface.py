@@ -31,8 +31,8 @@ class myImage():
     mimetype    = None
     faces       = None
     
-    IMAGE_PATH          = '/srv/cms/mmedia/'
-    RESIZE_FACTOR       = 0.5
+    IMAGE_PATH              = os.path.dirname(os.path.abspath(__file__)) + "/images/"
+    RESIZE_FACTOR           = 0.5
     
     source_orientation      = None
     destination_orientation = None
@@ -163,6 +163,8 @@ class myImage():
                 data['face'] = True
             else:
                 data['face'] = False
+    
+        if not 'type' in data: data['type'] = 'original'
     
         self.args = data
 
